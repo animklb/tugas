@@ -1,0 +1,71 @@
+
+import javax.swing.JOptionPane;
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+
+/**
+ *
+ * @author 62881
+ */
+public class TicketMachine {
+   private int harga;   
+  private int uang;   
+  private int total; 
+  private int kembalian; 
+
+  public TicketMachine(int biaya) 
+  { 
+  harga = biaya; 
+  uang = 0; 
+  total = 0; 
+  
+  kembalian = 0; 
+  } 
+  public int getharga() 
+  { 
+  return harga; 
+  } 
+  public int getuang() 
+  { 
+   return uang; 
+  } 
+  public void masukkanUang(int jumlah) 
+  { 
+    if(jumlah > 0){ uang = uang + jumlah;    }
+   else {  JOptionPane.showMessageDialog(null,"Masukkan uang ke dalam mesin!"); 
+ } 
+}
+  public void cetakTiket() 
+  { 
+    JOptionPane.showMessageDialog(null,"Uang anda sebesar Rp. "+uang+",-"); 
+     if(uang >= harga){ 
+   total = total + uang; 
+   kembalian=kembalianuang(); 
+   if (kembalian == 0) { JOptionPane.showMessageDialog(null,"Uang anda pas. Tidak ada kembalian.");   
+    }
+    else{ 
+      JOptionPane.showMessageDialog(null,"Kembalian Anda sebesar Rp. "+kembalian+",-"); 
+     } 
+     uang =0;
+   System.out.println();   
+   JOptionPane.showMessageDialog(null,"=====================\n===== kereta api =====\n*waktu: now*\n harga Ticket:       **** Rp." + harga + ",-       **\n==============================="); 
+   System.out.println(); 
+   JOptionPane.showMessageDialog(null,"Terima Kasih, semoga perjalanan Anda menyenangkan bersama kami!"); 
+   System.out.println(); 
+   System.exit(0); 
+   } 
+   else { 
+     JOptionPane.showMessageDialog(null,"Silakan masukan Rp."+(harga-uang)+",-"); 
+ } 
+ } 
+ public int kembalianuang() { 
+   int jumlahkembalian; 
+   jumlahkembalian = uang-harga; 
+   uang = 0; 
+   return jumlahkembalian; 
+ } 
+ }
+
