@@ -1,0 +1,71 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+
+/**
+ *
+ * @author 62881
+ */
+import javax.swing.*;
+public class dkb {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+  int biaya, menu; 
+        JOptionPane.showMessageDialog(null,"====SELAMAT DATANG DI LAYANAN KAMI====");
+  biaya = Integer.parseInt(JOptionPane.showInputDialog("=========PILIH TUJUAN ANDA=========\n1.Jember\n2.Banyuwangi\n3.Pasuruan"));
+  
+        switch (biaya){
+            case 1: 
+                   biaya=15000;
+                   
+                           break;
+            case 2:
+                               biaya=20000;
+                           break;
+            case 3:
+                            biaya=25000;
+                              break;
+                         default : 
+                          JOptionPane.showMessageDialog(null,"Menu Pesanan Yang Anda Cari Tidak Tersedia");
+       
+      
+    } 
+        
+  TicketMachine tiket = new TicketMachine(biaya); 
+ 
+  while(true)
+  { 
+  System.out.println(); 
+  menu=Integer.parseInt(JOptionPane.showInputDialog("1. Cetak Harga\n2. Masukkan Uang\n3. Jumlah Uang yang Sudah Dimasukkan\n4. Cetak Tiket"));
+  switch(menu) 
+  { 
+   case 1: 
+   biaya =tiket.getharga(); 
+  JOptionPane.showMessageDialog(null,"Harga tiket yang Anda beli sebesar Rp. "+biaya+",-"); 
+   break; 
+ 
+   case 2: 
+   JOptionPane.showMessageDialog(null,"Masukkan jumlah uang Anda"); 
+   int uang=Integer.parseInt(JOptionPane.showInputDialog("Masukkan jumlah uang Anda"));
+   tiket.masukkanUang(uang); 
+   break; 
+ 
+   case 3: 
+  JOptionPane.showMessageDialog(null,"Anda telah memasukkan uang sebesar Rp."+tiket.getuang()+",00"); 
+   break;
+ 
+   case 4: 
+   tiket.cetakTiket(); 
+   break; 
+  } 
+  } 
+    }
+}
+ 
+    
+
